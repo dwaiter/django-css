@@ -146,7 +146,7 @@ class Compressor(object):
     def save_file(self):
         if default_storage.exists(self.new_filepath):
             return False
-        default_storage.save(self.new_filepath, ContentFile(self.combined))
+        default_storage.save(self.new_filepath, ContentFile(self.combined.encode('utf-8')))
         return True
 
     def return_compiled_content(self, content):
